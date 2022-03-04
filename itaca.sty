@@ -69,16 +69,16 @@
 	\usetikzlibrary{calc}
 	\usetikzlibrary{matrix,arrows}
 
-% teste dei diagrammi 
+% teste dei diagrammi
 \tikzset{commutative diagrams/.cd,arrow style=tikz,diagrams={>=stealth'}}
 
 
-% classi di frecce 
-\let\mono\hookrightarrow 
+% classi di frecce
+\let\mono\hookrightarrow
 \let\epi\twoheadrightarrow
 
 
-% teoremi 
+% teoremi
 
 \makeatletter
 \def\defthm#1#2{%
@@ -110,3 +110,20 @@
  \defthm{discussion}{Discussione}
  \defthm{terminology}{Terminologia}
  \defthm{heuristics}{Euristica}
+
+\ProcessOptions\relax
+
+% alcuni diagrammi celebri
+\newcommand{\tSquare}[4]{
+  \begin{tikzcd}[ampersand replacement=\&]
+    #1 \ar[r]\ar[d]\& #2 \ar[d]\\
+    #3 \ar[r] \& #4 \\
+  \end{tikzcd}
+}
+
+\newcommand{\umpProduct}[4]{
+  \begin{tikzcd}[ampersand replacement=\&]
+    \& #1 \& \\
+    #2 \& #2 \times #4 \& #4 \\
+  \end{tikzcd}
+}
