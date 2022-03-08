@@ -2,8 +2,10 @@
 \ProvidesPackage{itaca}
   [lo .sty per il libro di ItaCa]
 
-
-\RequirePackage{xparse}
+% questi vanno chiamati per primi
+\RequirePackage{ xparse
+               , mathrsfs
+               }
 
 \ExplSyntaxOn
 \NewDocumentCommand{\makeabbrev}{mmm}
@@ -23,24 +25,24 @@
 \makeabbrev{\textbf}{bf#1}{
   a,b,c,d,e,g,h,i,j,k,l,m,n,o,p,q,r,t,u,v,w,x,y,z,%
   A,B,C,D,E,G,H,I,J,K,L,M,N,O,P,Q,R,T,U,V,W,X,Y,Z }
-\makeabbrev{\boldsymbol}{bs#1}{%
+\makeabbrev{\boldsymbol}{mnd#1}{%
     a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,%
     A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z }
-\makeabbrev{\mathsf}{sf#1}{
-  a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,%
-  A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z }
+
 \makeabbrev{\mathfrak}{fk#1}{
   a,b,c,d,e,f,g,h,j,k,i,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,%
   A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z }
-\makeabbrev{\mathcal}{cl#1}{
+
+  \makeabbrev{\mathcal}{ct#1}{
+    A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z }
+\makeabbrev{\mathscr}{ect#1}{
   A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z }
-\makeabbrev{\mathbb}{bb#1}{
-  A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z }
-\makeabbrev{\underline}{u#1}{
-  a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,
+\makeabbrev{\mathbb}{ict#1}{
   A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z }
 
-\RequirePackage{amsthm}
+\makeabbrev{\mathrm}{ob#1}{
+  A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z }
+
 \RequirePackage[utf8x]{inputenc}
 \RequirePackage[T2A]{fontenc}
 \RequirePackage[svgnames]{xcolor}
@@ -48,21 +50,16 @@
 \RequirePackage{ amsfonts
                , amsmath
                , amssymb
-               , caption
-               , epigraph
+               , amsthm
                , enumitem
                , microtype
                , mathtools
                , hyphenat
                , todonotes
                , stackrel
-               , savesym
-               , setspace
                , stmaryrd
                , tikz-cd
-               , tcolorbox
-               , verbatim
-               , calligra
+               , turnstile
                }
 
 \RequirePackage{tikz}
@@ -79,7 +76,6 @@
 
 
 % teoremi
-
 \makeatletter
 \def\defthm#1#2{%
   \newtheorem{#1}{#2}[section]%
@@ -88,6 +84,10 @@
 \makeatother
 
 \theoremstyle{definition}
+% \theoremstyle{plain}
+% \theoremstyle{remark}
+% ^ commentato perché Ivan si lamenterà
+
 \numberwithin{equation}{section}
 \newtheorem{theorem}{Teorema}[section]
  \defthm{corollary}{Corollario}
@@ -113,17 +113,69 @@
 
 \ProcessOptions\relax
 
-% alcuni diagrammi celebri
-\newcommand{\tSquare}[4]{
-  \begin{tikzcd}[ampersand replacement=\&]
-    #1 \ar[r]\ar[d]\& #2 \ar[d]\\
-    #3 \ar[r] \& #4 \\
-  \end{tikzcd}
-}
+\newcommand{\Hom}[1]{#1}
 
-\newcommand{\umpProduct}[4]{
-  \begin{tikzcd}[ampersand replacement=\&]
-    \& #1 \& \\
-    #2 \& #2 \times #4 \& #4 \\
-  \end{tikzcd}
-}
+\def\fun{\longrightarrow}
+\def\nat{\Rightarrow}
+
+\def\xto#1\xrightarrow{#1}
+\def\xfun#1\xlongrightarrow{#1}
+\def\xnat#1\xRightarrow{#1}
+
+% == categorie che hanno un nome
+\newcommand{\cate}[1]{\mathbf{#1}}
+  \newcommand{\ctSet}{\cate{Set}}
+  \newcommand{\ctTop}{\cate{Top}}
+  \newcommand{\ctAb}{\cate{Ab}}
+  \newcommand{\ctGrp}{\cate{Grp}}
+  \newcommand{\ctCat}{\cate{Cat}}
+  \newcommand{\ctMod}{\cate{Mod}}
+  \newcommand{\ctRing}{\cate{Ring}}
+  \newcommand{\ctMon}{\cate{Mon}}
+  \newcommand{\ctPos}{\cate{Pos}}
+  \newcommand{\ctLat}{\cate{Lat}}
+  \newcommand{\ctVect}{\cate{Vect}}
+
+\DeclareMathOperator*{\colim}{colim}
+\DeclareMathOperator*{\eq}{eq}
+\DeclareMathOperator*{\coeq}{coeq}
+
+\newcommand{\yon}{y}
+\newcommand{\cop}{\coprod}
+
+% #1 #2 : gli oggetti che pulli
+% #3 : l'oggetto su cui #1 #2 arrivano
+\newcommand{\pull}[3]{#1 \times_{#3} #2}
+
+% #1 #2 : gli oggetti che pushi
+% #3 : l'oggetto lungo cui incolli
+\newcommand{\push}[3]{#1 +_{#3} #2}
+
+\newcommand{\init}{0}
+\newcommand{\term}{1}
+
+
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\dom}[1]{d(#1)}
+\newcommand{\cod}[1]{c(#1)}
+\newcommand{\cmp}{\circ}
+
+\def\op{\text{op}}
+\newcommand{\opp}[1]{#1^\op}
+
+% strutture monoidali
+\newcommand{\monProd}{\otimes}
+\newcommand{\monUnit}{I}
+\newcommand{\monSymm}{\sigma}
+\newcommand{\associator}{\alpha}
+\newcommand{\unitorL}{\lambda}
+\newcommand{\unitorR}{\varrho}
+
+% aggiunti
+\NewDocumentCommand{\adjunct}{O{} O{}}{\nsststile{#2}{#1}}
+
+% isomorfismi / equivalenze
+\newcommand{\iso}{\cong}
+\newcommand{\eqv}{\simeq}
+
+\newcommand{\defeq}{\coloneqq}
