@@ -50,17 +50,17 @@ Una t. naturale
 
 Una pletora di categorie con un nome:
 \[
-	\ctSet\quad
-	\ctTop\quad
-	\ctAb\quad
-	\ctGrp\quad
-	\ctCat\quad
-	\ctMod\quad
-	\ctRing\quad
-	\ctMon\quad
-	\ctPos\quad
-	\ctLat\quad
-	\ctVect\]
+\ctSet\quad
+\ctTop\quad
+\ctAb\quad
+\ctGrp\quad
+\ctCat\quad
+\ctMod\quad
+\ctRing\quad
+\ctMon\quad
+\ctPos\quad
+\ctLat\quad
+\ctVect\]
 Il colimite
 \[\lim_{I\in\ctI} \quad \colim_{I\in\ctI}\]
 
@@ -76,7 +76,7 @@ Every adjunction generates a monad \(\mndT = (T, \eta,\mu)\).
 \(\mndT = (T, \eta,\mu)\) Every\(\mndT = (T, \eta,\mu)\) adjunction generates \(\mndT = (T, \eta,\mu)\)a monad \(\mndT = (T, \eta,\mu)\).
 \(\mndT = (T, \eta,\mu)\) Every adjunction generates a monad.
 
-\[f \iso g\qquad f \eqv g\]
+           \[f \iso g\qquad f \eqv g\]
 \[A \defeq B\]
 \clearpage
 \appendix
