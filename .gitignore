@@ -1,5 +1,6 @@
-/main.aux
-/main.fdb_latexmk
-/main.fls
-/main.log
-/main.pdf
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.pdf
+*.bak*
