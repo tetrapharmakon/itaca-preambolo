@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import re, os, sys
 
 good_delims = lambda x: re.sub(r"\$(.*?)\$", r"\\(\1\\)", x, flags = re.M)
