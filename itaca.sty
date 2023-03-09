@@ -121,6 +121,7 @@
 % == categorie che hanno un nome
 \newcommand{\cate}[1]{\mathbf{#1}}
   \newcommand{\ctSet}{\cate{Set}}
+  \newcommand{\ctFin}{\cate{Fin}}
   \newcommand{\ctTop}{\cate{Top}}
   \newcommand{\ctAb}{\cate{Ab}}
   \newcommand{\ctGrp}{\cate{Grp}}
@@ -177,5 +178,11 @@
 \newcommand{\defeq}{\coloneqq}
 
 \NewDocumentCommand{\tup}{O{1} m m m}{
-#2_{#1} #4 \dots #4 {#2}_{#3}
+#2_{#1} #4 \dots #4 #2_{#3}
 }
+% #1 : l'indice di partenza
+% #2 : la variabile indicizzata
+% #3 : l'indice di fine
+% #4 : il simbolo infisso ("," "\otimes" "+" etc)
+
+\newcommand{\Todo}[1]{\todo[inline, caption=0,color=green!20]{#1}}
