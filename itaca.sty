@@ -39,7 +39,8 @@
   A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z }
 \makeabbrev{\mathbb}{ict#1}{
   A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z }
-
+  \makeabbrev{\mathbb}{bb#1}{
+    A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z }
 \makeabbrev{\mathrm}{ob#1}{
   A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z }
 
@@ -186,3 +187,8 @@
 % #4 : il simbolo infisso ("," "\otimes" "+" etc)
 
 \newcommand{\Todo}[1]{\todo[inline, caption=0,color=green!20]{#1}}
+
+\DeclareDocumentEnvironment{enumtag}{m}{%
+	\begin{enumerate}[ label = \textsc{#1}\oldstylenums{\arabic*}), ref   = \textsc{#1}\oldstylenums{\arabic*} ] }{ \end{enumerate} }
+
+\newcommand{\emdash}{\text{-}}
