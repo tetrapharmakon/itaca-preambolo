@@ -193,3 +193,8 @@
 
 \newcommand{\emdash}{\text{-}}
 \setlist[itemize,enumerate]{itemsep=0pt}
+
+\def\pto{\rightarrowtriangle}%{\mathbin{\ooalign{$\to$\cr$\hfil\mapstochar\hfil$}}}
+
+
+\def\longmor#1#2{\begin{tikzcd}[ampersand replacement=\&] #1 \ar[r] \& #2 \end{tikzcd}}
