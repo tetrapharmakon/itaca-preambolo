@@ -212,3 +212,71 @@
 
 
 \def\longmor#1#2{\begin{tikzcd}[ampersand replacement=\&] #1 \ar[r] \& #2 \end{tikzcd}}
+
+\newenvironment{xsmallmatrix}[1]
+{\renewcommand\thickspace{\kern#1}\smallmatrix}
+{\endsmallmatrix}
+
+\NewDocumentCommand{\prevar}{o m m O{\downarrow}}{
+	\IfNoValueTF{#1}{
+	  \begin{smallmatrix}
+	  	#2 \\ #4 \\ #3
+	  \end{smallmatrix}}
+	{
+		\begin{xsmallmatrix}{0em}
+			   & #2         \\
+			#1 & #4 \\
+			   & #3
+		\end{xsmallmatrix}
+	}
+}
+
+\ExplSyntaxOn
+\NewDocumentCommand{\var}{ o m O{s} m O{\downarrow} }{
+	\str_case:nn { #3 } {
+    {r}{\left(       \prevar[#1]{#2}{#4}[#5] \right)}
+    {s}{\left[       \prevar[#1]{#2}{#4}[#5] \right]}
+    {c}{\left\{      \prevar[#1]{#2}{#4}[#5] \right\}}
+    {a}{\left\langle \prevar[#1]{#2}{#4}[#5] \right\rangle}
+	}}
+	\newcommand{\precop}[2]{
+		\begin{smallmatrix}
+			#1 \\ #2
+		\end{smallmatrix}
+	}
+	\NewDocumentCommand{\copmap}{O{r} m m}{
+		\str_case:nn { #1 } {
+			{r}{\left(       \precop{#2}{#3} \right)}
+			{s}{\left[       \precop{#2}{#3} \right]}
+			{c}{\left\{      \precop{#2}{#3} \right\}}
+			{a}{\left\langle \precop{#2}{#3} \right\rangle}
+		}}
+
+\ExplSyntaxOff
+
+\usepackage{adjustbox}
+\newenvironment{adju}[1][0.925]{%
+\begin{center}%
+	\begin{adjustbox}{max height=0.5\textheight, max width=#1\textwidth}%
+}{%
+  \end{adjustbox}\end{center}%
+}
+
+% \def\emdash{\text{-}}
+% \NewDocumentCommand{\VCat}{ O{\clV} }{#1\emdash\Cat}
+% \def\twoCat{\VCat[2]}
+%
+% \newcommand{\adja}[4]{
+%   #1 : \xymatrix{#2 \ar@<.5em>[r] \ar@{}[r]|\perp & \ar@<.5em>[l] #3 } : #4
+% }
+%
+%
+% \NewDocumentCommand{\vxy}{o m}{
+%   \IfNoValueTF{#1}
+%   {\vcenter{\xymatrix{#2}}} % do if \vxy{bla}
+%   {\vcenter{\xymatrix#1{#2}}} % do if \vxy[foo]{bla}
+% }
+%
+% \NewDocumentCommand{\tup}{O{1} m m m}{
+% #2_{#1} #4 \dots #4 #2_{#3}
+% }
