@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}[2020/12/01]
-\ProvidesPackage{itaca}
+\ProvidesPackage{itaca-preambolo/itaca}
   [lo .sty per il libro di ItaCa]
 
 % questi vanno chiamati per primi
@@ -110,6 +110,8 @@
  \defthm{discussion}{Discussione}
  \defthm{terminology}{Terminologia}
  \defthm{heuristics}{Euristica}
+
+\newtheorem*{proposition*}{Proposizione}
 
 \ProcessOptions\relax
 
@@ -261,6 +263,16 @@
 }{%
   \end{adjustbox}\end{center}%
 }
+
+\NewDocumentCommand{\lort}{ m }{ 
+  {}^\perp #1
+}
+
+\NewDocumentCommand{\rort}{ m }{ 
+  #1^\perp
+}
+
+
 
 % \def\emdash{\text{-}}
 % \NewDocumentCommand{\VCat}{ O{\clV} }{#1\emdash\Cat}
