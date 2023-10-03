@@ -202,6 +202,11 @@
 % #3 : l'indice di fine
 % #4 : il simbolo infisso ("," "\otimes" "+" etc)
 
+\NewDocumentCommand{\iter}{O{1} O{,} m}{
+{#1} #2 \dots #2 {#3}
+}
+
+
 \newcommand{\Todo}[1]{\todo[inline, caption=0,color=green!20]{#1}}
 \newcommand{\cippo}{\todo[inline, caption=0,color=blue!20]{Sono arrivato qui, il \today}}
 \DeclareDocumentEnvironment{enumtag}{m}{%
