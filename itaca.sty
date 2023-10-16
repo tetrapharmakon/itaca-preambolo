@@ -64,8 +64,7 @@
                }
 
 \RequirePackage{tikz}
-	\usetikzlibrary{calc}
-	\usetikzlibrary{matrix,arrows}
+	\usetikzlibrary{calc,matrix,arrows,positioning}
 
 % classi di frecce
 \let\mono\hookrightarrow
@@ -282,7 +281,9 @@
   #1^\perp
 }
 
-
+\NewDocumentCommand{\act}{ m }{
+  #1/\!\!/#1
+}
 
 % \def\emdash{\text{-}}
 % \NewDocumentCommand{\VCat}{ O{\clV} }{#1\emdash\Cat}
