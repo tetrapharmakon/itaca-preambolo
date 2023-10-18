@@ -65,7 +65,7 @@
 
 \RequirePackage{tikz}
 	\usetikzlibrary{calc,matrix,arrows,positioning}
-
+  \usetikzlibrary{decorations.pathmorphing}
 % classi di frecce
 \let\mono\hookrightarrow
 \let\epi\twoheadrightarrow
@@ -145,7 +145,7 @@
   \newcommand{\ctFlux}{\cate{Flux}}
   \newcommand{\ctPOrd}{\cate{POrd}}
   \newcommand{\ctPre}{\cate{Pre}}
-  \newcommand{\ctPOrd}{\cate{POrd}}
+  % \newcommand{\ctPOrd}{\cate{POrd}}
   \newcommand{\ctOrd}{\cate{Ord}}
   \newcommand{\ctFOrd}{\cate{FOrd}}
   \NewDocumentCommand{\ctEuc}{O{\bbR}}{\cate{Euc}^{#1}_*}
