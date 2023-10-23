@@ -44,6 +44,10 @@
 \makeabbrev{\mathrm}{ob#1}{
   A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z }
 
+  \makeabbrev{\mathbf}{ct#1}{
+    Set, Rel, FRel, Fin, Top, Ab, Gph, Grp, Cat, CAT, Mod, Ring, Mon, Pos, Circ, Flux, POrd, Pre, Span, Cospan, Ord, FOrd, Lat, Vect }
+  
+
 \RequirePackage[utf8x]{inputenc}
 \RequirePackage[T2A]{fontenc}
 \RequirePackage[svgnames]{xcolor}
@@ -127,30 +131,31 @@
 
 % == categorie che hanno un nome
 \newcommand{\cate}[1]{\mathbf{#1}}
-  \newcommand{\ctSet}{\cate{Set}}
-  \newcommand{\ctRel}{\cate{Rel}}
-  \newcommand{\ctFRel}{\cate{FRel}}
-  \newcommand{\ctFin}{\cate{Fin}}
-  \newcommand{\ctTop}{\cate{Top}}
-  \newcommand{\ctAb}{\cate{Ab}}
-  \newcommand{\ctGph}{\cate{Gph}}
-  \newcommand{\ctGrp}{\cate{Grp}}
-  \newcommand{\ctCat}{\cate{Cat}}
-  \newcommand{\ctCAT}{\cate{CAT}}
-  \newcommand{\ctMod}{\cate{Mod}}
-  \newcommand{\ctRing}{\cate{Ring}}
-  \newcommand{\ctMon}{\cate{Mon}}
-  \newcommand{\ctPos}{\cate{Pos}}
-  \newcommand{\ctCirc}{\cate{Circ}}
-  \newcommand{\ctFlux}{\cate{Flux}}
-  \newcommand{\ctPOrd}{\cate{POrd}}
-  \newcommand{\ctPre}{\cate{Pre}}
+  % \newcommand{\ctSet}{\cate{Set}}
+  % \newcommand{\ctRel}{\cate{Rel}}
+  % \newcommand{\ctFRel}{\cate{FRel}}
+  % \newcommand{\ctFin}{\cate{Fin}}
+  % \newcommand{\ctTop}{\cate{Top}}
+  % \newcommand{\ctAb}{\cate{Ab}}
+  % \newcommand{\ctGph}{\cate{Gph}}
+  % \newcommand{\ctGrp}{\cate{Grp}}
+  % \newcommand{\ctCat}{\cate{Cat}}
+  % \newcommand{\ctCAT}{\cate{CAT}}
+  % \newcommand{\ctMod}{\cate{Mod}}
+  % \newcommand{\ctRing}{\cate{Ring}}
+  % \newcommand{\ctMon}{\cate{Mon}}
+  % \newcommand{\ctPos}{\cate{Pos}}
+  % \newcommand{\ctCirc}{\cate{Circ}}
+  % \newcommand{\ctFlux}{\cate{Flux}}
   % \newcommand{\ctPOrd}{\cate{POrd}}
-  \newcommand{\ctOrd}{\cate{Ord}}
-  \newcommand{\ctFOrd}{\cate{FOrd}}
+  % \newcommand{\ctPre}{\cate{Pre}}
+  % \newcommand{\ctSpan}{\cate{Span}}
+  % \newcommand{\ctCospan}{\cate{Cospan}}
+  % \newcommand{\ctOrd}{\cate{Ord}}
+  % \newcommand{\ctFOrd}{\cate{FOrd}}
   \NewDocumentCommand{\ctEuc}{O{\bbR}}{\cate{Euc}^{#1}_*}
-  \newcommand{\ctLat}{\cate{Lat}}
-  \newcommand{\ctVect}{\cate{Vect}}
+  % \newcommand{\ctLat}{\cate{Lat}}
+  % \newcommand{\ctVect}{\cate{Vect}}
   \newcommand{\ctInit}{\cate{0}}
   \newcommand{\ctTerm}{\cate{1}}
 
@@ -305,3 +310,10 @@
 % \NewDocumentCommand{\tup}{O{1} m m m}{
 % #2_{#1} #4 \dots #4 #2_{#3}
 % }
+
+% funtore in displaymath
+\NewDocumentCommand{\dmFun}{m m m}{
+  \begin{tikzcd}[ampersand replacement=\&]
+    #1 : #2 \ar[r] \& #3
+  \end{tikzcd}
+}
