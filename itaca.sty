@@ -44,9 +44,9 @@
 \makeabbrev{\mathrm}{ob#1}{
   A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z }
 
-  \makeabbrev{\mathbf}{ct#1}{
-    Set, Rel, FRel, Fin, Top, Ab, Gph, Grp, Cat, CAT, Mod, Ring, Mon, Pos, Circ, Flux, POrd, Pre, Span, Cospan, Ord, FOrd, Lat, Vect }
-  
+\makeabbrev{\mathbf}{ct#1}{ Set, Rel, FRel, Fin, Top, Ab, Gph, dGph, Grp, Cat, CAT, Mod, Ring, cRing, Mon, Pos, Circ, Flux, POrd, Pre, Span, Cospan, Ord, FOrd, Lat, Vect }
+
+\makeabbrev{\mathrm}{#1}{ GL }
 
 \RequirePackage[utf8x]{inputenc}
 \RequirePackage[T2A]{fontenc}
@@ -122,6 +122,7 @@
 
 \def\fun{\longrightarrow}
 \let\funto\fun
+\def\aa{\text{a}}
 \def\nat{\Rightarrow}
 \def\implies{\Rightarrow}
 
@@ -162,6 +163,7 @@
 \DeclareMathOperator*{\colim}{colim}
 \DeclareMathOperator*{\eq}{eq}
 \DeclareMathOperator*{\coeq}{coeq}
+\DeclareMathOperator*{\coker}{coker}
 
 \newcommand{\yon}{y}
 \newcommand{\cop}{\coprod}
