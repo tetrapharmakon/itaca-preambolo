@@ -44,7 +44,9 @@
 \makeabbrev{\mathrm}{ob#1}{
   A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z }
 
-\makeabbrev{\mathbf}{ct#1}{ Set, Rel, FRel, Fin, Top, Ab, Gph, dGph, Grp, Cat, CAT, Mod, Ring, cRing, Mon, Pos, Circ, Flux, POrd, Pre, Span, Cospan, Ord, FOrd, Lat, Vect }
+\makeabbrev{\mathbf}{ct#1}{ Set, Rel, FRel, Fin, Top, Ab, Gph, dGph, Grp, Cat, CAT, Mod, Ring, cRing, Mon, Pos, Circ, Flux, POrd, Pre, Span, Cospan, Ord, FOrd, Lat, Vect, Mat }
+
+\def\pSet{\partial\ctSet}
 
 \makeabbrev{\mathrm}{#1}{ GL }
 
@@ -132,31 +134,7 @@
 
 % == categorie che hanno un nome
 \newcommand{\cate}[1]{\mathbf{#1}}
-  % \newcommand{\ctSet}{\cate{Set}}
-  % \newcommand{\ctRel}{\cate{Rel}}
-  % \newcommand{\ctFRel}{\cate{FRel}}
-  % \newcommand{\ctFin}{\cate{Fin}}
-  % \newcommand{\ctTop}{\cate{Top}}
-  % \newcommand{\ctAb}{\cate{Ab}}
-  % \newcommand{\ctGph}{\cate{Gph}}
-  % \newcommand{\ctGrp}{\cate{Grp}}
-  % \newcommand{\ctCat}{\cate{Cat}}
-  % \newcommand{\ctCAT}{\cate{CAT}}
-  % \newcommand{\ctMod}{\cate{Mod}}
-  % \newcommand{\ctRing}{\cate{Ring}}
-  % \newcommand{\ctMon}{\cate{Mon}}
-  % \newcommand{\ctPos}{\cate{Pos}}
-  % \newcommand{\ctCirc}{\cate{Circ}}
-  % \newcommand{\ctFlux}{\cate{Flux}}
-  % \newcommand{\ctPOrd}{\cate{POrd}}
-  % \newcommand{\ctPre}{\cate{Pre}}
-  % \newcommand{\ctSpan}{\cate{Span}}
-  % \newcommand{\ctCospan}{\cate{Cospan}}
-  % \newcommand{\ctOrd}{\cate{Ord}}
-  % \newcommand{\ctFOrd}{\cate{FOrd}}
   \NewDocumentCommand{\ctEuc}{O{\bbR}}{\cate{Euc}^{#1}_*}
-  % \newcommand{\ctLat}{\cate{Lat}}
-  % \newcommand{\ctVect}{\cate{Vect}}
   \newcommand{\ctInit}{\cate{0}}
   \newcommand{\ctTerm}{\cate{1}}
 
@@ -293,25 +271,6 @@
 \NewDocumentCommand{\act}{ m }{
   #1/\!\!/#1
 }
-
-% \def\emdash{\text{-}}
-% \NewDocumentCommand{\VCat}{ O{\clV} }{#1\emdash\Cat}
-% \def\twoCat{\VCat[2]}
-%
-% \newcommand{\adja}[4]{
-%   #1 : \xymatrix{#2 \ar@<.5em>[r] \ar@{}[r]|\perp & \ar@<.5em>[l] #3 } : #4
-% }
-%
-%
-% \NewDocumentCommand{\vxy}{o m}{
-%   \IfNoValueTF{#1}
-%   {\vcenter{\xymatrix{#2}}} % do if \vxy{bla}
-%   {\vcenter{\xymatrix#1{#2}}} % do if \vxy[foo]{bla}
-% }
-%
-% \NewDocumentCommand{\tup}{O{1} m m m}{
-% #2_{#1} #4 \dots #4 #2_{#3}
-% }
 
 % funtore in displaymath
 \NewDocumentCommand{\dmFun}{m m m}{
